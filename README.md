@@ -105,17 +105,7 @@ Organização em camadas
 
 Boas práticas de código
 
-🚧 Próximas Melhorias
 
-Persistência em arquivo ou banco de dados
-
-Atualizar contatos
-
-Remover contatos
-
-Validação de email e telefone
-
-Versão com API REST
 
 👨‍💻 Autor
 
