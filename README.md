@@ -1,22 +1,23 @@
-📒 Agenda de Contatos - Console App (.NET)
+# 📒 Agenda de Contatos (.NET Console)
 
-Aplicação de console desenvolvida em C# (.NET) para gerenciamento de contatos, aplicando conceitos de organização em camadas, separação de responsabilidades e padrão Repository.
+Aplicação de console desenvolvida em **C# (.NET)** para gerenciamento de contatos, aplicando conceitos de **arquitetura em camadas**, **separação de responsabilidades** e **padrão Repository**.
 
-Este projeto foi criado com foco em aprendizado prático e construção de portfólio para vagas Back-end Júnior.
+Projeto voltado para prática e portfólio de **Back-end Júnior**.
 
-🚀 Funcionalidades
+---
 
-✅ Adicionar contato
+## 🚀 Funcionalidades
 
-✅ Listar contatos cadastrados
+- Adicionar contatos  
+- Listar contatos cadastrados  
+- Buscar contato pelo nome  
+- Menu interativo no console  
 
-✅ Buscar contato pelo nome
+---
 
-✅ Validações básicas de entrada
+## 🧱 Estrutura do Projeto
 
-✅ Menu interativo no console
-
-🧱 Arquitetura do Projeto
+Organização baseada em camadas:
 
 O projeto foi organizado seguindo uma estrutura simples e limpa:
 
@@ -26,56 +27,52 @@ AgendaService (Regra de negócio)
   ↓
 ContatoRepository (Acesso e gerenciamento da lista)
 
-Responsabilidades:
 
-Menu
+### Responsabilidades
 
-Interface com o usuário
+**Menu**
+- Interação com o usuário  
+- Navegação e entrada de dados  
 
-Entrada de dados e navegação
+**AgendaService**
+- Lógica da aplicação  
+- Comunicação entre Menu e Repository  
 
-AgendaService
+**ContatoRepository**
+- Armazenamento e manipulação dos contatos  
 
-Lógica da aplicação
+**Contato (Model)**
+- Representação da entidade Contato  
 
-Comunicação entre Menu e Repository
+---
 
-ContatoRepository
+## 🛠 Tecnologias Utilizadas
 
-Armazenamento e manipulação dos dados
+- C#  
+- .NET Console Application  
+- Programação Orientada a Objetos  
+- List<T>  
+- Injeção de Dependência (manual)  
+- Repository Pattern (conceito)  
 
-Operações de lista, busca e inserção
+---
 
-Contato (Model)
+## ▶ Como Executar
 
-Representa a entidade Contato
+### Pré-requisitos
 
-🛠 Tecnologias Utilizadas
+- .NET SDK instalado  
+https://dotnet.microsoft.com/download  
 
-C#
+---
 
-.NET Console Application
-
-Programação Orientada a Objetos (POO)
-
-List<T>
-
-Injeção de Dependência Manual
-
-Repository Pattern (conceito)
-
-▶ Como Executar o Projeto
-Pré-requisitos:
-
-.NET SDK instalado
-👉 https://dotnet.microsoft.com/download
-
-Passos:
+### Passo a passo
 
 Clone o repositório:
 
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
+```bash
 
+git clone https://github.com/seu-usuario/nome-do-repositorio.git
 
 Entre na pasta do projeto:
 
@@ -98,35 +95,23 @@ Exemplo do menu:
 
 📚 Conceitos Aplicados
 
-Separação de camadas
+Separação de responsabilidades
 
 Encapsulamento
 
 Injeção de dependência via construtor
 
-Boas práticas de organização de código
+Organização em camadas
 
-Reutilização de classes
+Boas práticas de código
 
-Responsabilidade única (SRP)
 
-📈 Próximas Melhorias (Roadmap)
-
-🔹 Persistência em arquivo ou banco de dados
-
-🔹 Atualizar contato
-
-🔹 Remover contato
-
-🔹 Validação de email e telefone
-
-🔹 Interface gráfica ou API REST
 
 👨‍💻 Autor
 
-Projeto desenvolvido por [Seu Nome]
-Estudante de Back-end .NET focado em desenvolvimento C# e boas práticas.
+Desenvolvido por Leonardo Augusto
+Estudante de Back-end .NET focado em C# e desenvolvimento de software.
 
-⭐ Observação
 
-Este projeto faz parte do meu processo de aprendizado e evolução profissional na área de desenvolvimento de software.
+
+
