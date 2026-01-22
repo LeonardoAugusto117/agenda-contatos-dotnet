@@ -15,6 +15,35 @@
         return contatos.FirstOrDefault(c => c.Nome.Equals(nome, StringComparison.OrdinalIgnoreCase));
     }
 
+    public bool ExisteEmail(string email)
+    {
+        return contatos.Any(c => c.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
+    }
+
+
+    //Buscar contato por nome
+   void BuscarContatoPorNome(string nome)
+    {
+        Console.Write("Digite o nome do contato que deseja buscar: ");
+        string nomeBusca = Console.ReadLine() ?? string.Empty;
+        
+        foreach (var contato in contatos)
+        {
+            if (contato.Nome.Equals(nomeBusca, StringComparison.OrdinalIgnoreCase))
+            {
+                Console.WriteLine("Contato encontrado:");
+                Console.WriteLine(contato.Informacao);
+                return;
+            }else {
+                Console.WriteLine("Contato não encontrado.");
+            }
+
+    }
+
+
+
+
+
     void ExibirTituloDaOpcao(string titulo)
     {
         // Colocar o asteriscos do tamanho da frase

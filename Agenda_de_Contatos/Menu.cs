@@ -54,6 +54,9 @@
                         foreach (var contato in contatos)
                         Console.WriteLine(contato.Informacao);
                     break;
+                case "3":
+                  // _agendaService.BuscarCont
+                    break;
 
                 case "4":
                     return;
