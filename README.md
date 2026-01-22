@@ -94,7 +94,6 @@ Exemplo do menu:
 4. Sair
 
 📚 Conceitos Aplicados
-📚 Conceitos Aplicados
 
 Separação de responsabilidades
 
