@@ -122,22 +122,6 @@ Versão com API REST
 Desenvolvido por Leonardo Augusto
 Estudante de Back-end .NET focado em C# e desenvolvimento de software.
 
-⭐ Observação
 
-
----
-
-## ✅ Por que agora vai ficar bonito no GitHub?
-
-Porque eu:
-
-✔ Usei markdown puro compatível  
-✔ Evitei emojis quebrando layout  
-✔ Corrigi espaçamento  
-✔ Padronizei títulos  
-✔ Organizei seções  
-✔ Ajustei blocos de código  
-
----
 
 
