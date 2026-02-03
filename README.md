@@ -1,8 +1,8 @@
-# 📒 Agenda de Contatos (.NET Console)
+# 📒 Agenda de Contatos (.NET Console + PostgreSQL)
 
-Aplicação de console desenvolvida em **C# (.NET)** para gerenciamento de contatos, aplicando conceitos de **arquitetura em camadas**, **separação de responsabilidades** e **padrão Repository**.
+Aplicação de console desenvolvida em **C# (.NET)** para gerenciamento de contatos, utilizando **Entity Framework Core** e **PostgreSQL** para persistência de dados.
 
-Projeto voltado para prática e portfólio de **Back-end Júnior**.
+Projeto criado com foco em **boas práticas**, **arquitetura em camadas** e **padrão Repository**, voltado para portfólio de **Back-end Júnior**.
 
 ---
 
@@ -11,38 +11,52 @@ Projeto voltado para prática e portfólio de **Back-end Júnior**.
 - Adicionar contatos  
 - Listar contatos cadastrados  
 - Buscar contato pelo nome  
+- Remover contatos  
+- Persistência em banco de dados PostgreSQL  
 - Menu interativo no console  
 
 ---
 
-## 🧱 Estrutura do Projeto
+## 🧱 Arquitetura do Projeto
 
 Organização baseada em camadas:
 
-O projeto foi organizado seguindo uma estrutura simples e limpa:
-
 Menu (UI)
-  ↓
+↓
 AgendaService (Regra de negócio)
-  ↓
-ContatoRepository (Acesso e gerenciamento da lista)
+↓
+ContatoRepository (Acesso a dados)
+↓
+AgendaContext (Entity Framework)
+↓
+PostgreSQL (Banco de Dados)
 
+
+---
 
 ### Responsabilidades
 
-**Menu**
+### 🖥 Menu (UI)
 - Interação com o usuário  
-- Navegação e entrada de dados  
+- Entrada de dados  
+- Navegação do sistema  
 
-**AgendaService**
-- Lógica da aplicação  
+### ⚙ AgendaService
+- Regras de negócio  
+- Validações  
 - Comunicação entre Menu e Repository  
 
-**ContatoRepository**
-- Armazenamento e manipulação dos contatos  
+### 🗄 ContatoRepository
+- Persistência dos dados  
+- Operações no banco (CRUD)  
+- Comunicação com o DbContext  
 
-**Contato (Model)**
-- Representação da entidade Contato  
+### 📦 Models (Contato)
+- Representação da entidade de domínio  
+
+### 🛢 AgendaContext
+- Contexto do Entity Framework  
+- Configuração da conexão com PostgreSQL  
 
 ---
 
@@ -50,68 +64,118 @@ ContatoRepository (Acesso e gerenciamento da lista)
 
 - C#  
 - .NET Console Application  
+- Entity Framework Core  
+- PostgreSQL  
+- Npgsql Provider  
 - Programação Orientada a Objetos  
-- List<T>  
+- Repository Pattern  
 - Injeção de Dependência (manual)  
-- Repository Pattern (conceito)  
 
 ---
 
-## ▶ Como Executar
+## 🗄 Banco de Dados
 
-### Pré-requisitos
+### Banco utilizado
 
-- .NET SDK instalado  
-https://dotnet.microsoft.com/download  
+- PostgreSQL  
 
 ---
 
-### Passo a passo
+### Tabela criada automaticamente via Migration
 
-Clone o repositório:
+Tabela:
 
-```bash
+
+Campos:
+
+- Id  
+- Nome  
+- Telefone  
+- Email  
+
+---
+
+## ⚙ Configuração do Banco
+
+No arquivo:
+
+
+Configure sua connection string:
+
+```csharp
+options.UseNpgsql(
+    "Host=localhost;Port=5432;Database=agenda_db;Username=postgres;Password=SUA_SENHA"
+);
+
+▶ Como Executar o Projeto
+
+Pré-requisitos
+
+.NET SDK
+
+PostgreSQL instalado
+
+pgAdmin (opcional para visualizar dados)
+
+Download .NET:
+
+https://dotnet.microsoft.com/download
+
+Download PostgreSQL:
+
+https://www.postgresql.org/download/
+
+1️⃣ Clone o repositório
 
 git clone https://github.com/seu-usuario/nome-do-repositorio.git
 
-Entre na pasta do projeto:
+2️⃣ Entre na pasta
 
 cd nome-do-repositorio
 
+3️⃣ Instale os pacotes (se necessário)
 
-Execute:
+dotnet add package Microsoft.EntityFrameworkCore
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL
+
+4️⃣ Execute as migrations
+
+dotnet ef database update
+
+5️⃣ Rode o projeto
 
 dotnet run
 
 📸 Demonstração (Console)
-
-Exemplo do menu:
+Menu principal:
 
 === Agenda de Contatos ===
+
 1. Adicionar Contato
 2. Listar Contatos
 3. Buscar Contato
-4. Sair
+4. Remover Contato
+5. Sair
 
 📚 Conceitos Aplicados
 
-Separação de responsabilidades
+*Arquitetura em camadas
 
-Encapsulamento
+*Separação de responsabilidades
 
-Injeção de dependência via construtor
+*Padrão Repository
 
-Organização em camadas
+*Entity Framework Core
 
-Boas práticas de código
+*Migrations
 
+*Persistência em banco relacional
 
+*Injeção de dependência via construtor
 
-👨‍💻 Autor
+*Boas práticas de organização
+
 
 Desenvolvido por Leonardo Augusto
-Estudante de Back-end .NET focado em C# e desenvolvimento de software.
-
-
-
-
+Estudante de Back-end .NET com foco em C#, Entity Framework e desenvolvimento de software.
