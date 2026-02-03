@@ -1,4 +1,5 @@
-﻿class AgendaService
+﻿using Agenda_de_Contatos.Models;
+class AgendaService
 
 {
     // Repositorio de contatos
@@ -75,7 +76,7 @@
     }
 
     // Referencia a lista para que outra classe consiga visualizar os contatos
-    public List<Contato> ObterTodos()
+    public IReadOnlyList<Contato> ObterTodos()
     {
         return _contatoRepository.Listar();
     }
@@ -98,5 +99,31 @@
         opcao = Console.ReadLine() ?? "2";
         Console.Clear();
     }
+
+
+    public void BuscarContato()
+    {
+        Console.Clear();
+        ExibirTituloDaOpcao("Buscar Contato");
+
+        Console.Write("Digite o nome do contato: ");
+        string nome = Console.ReadLine() ?? string.Empty;
+
+        var contato = _contatoRepository.BuscarPorNome(nome);
+
+        if (contato == null)
+        {
+            Console.WriteLine("\nContato não encontrado.");
+        }
+        else
+        {
+            Console.WriteLine("\nContato encontrado:");
+            Console.WriteLine(contato.Informacao);
+        }
+
+        Console.WriteLine("\nPressione qualquer tecla para voltar...");
+        Console.ReadKey();
+    }
+
 
 }

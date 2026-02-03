@@ -1,4 +1,6 @@
-﻿class Menu
+﻿
+using Agenda_de_Contatos.Models;
+class Menu
 {
     void ExibirLogo(){
 
@@ -55,7 +57,7 @@
                         Console.WriteLine(contato.Informacao);
                     break;
                 case "3":
-                  // _agendaService.BuscarCont
+                    _agendaService.BuscarContato();
                     break;
 
                 case "4":

@@ -1,56 +1,46 @@
-﻿class ContatoRepository
+﻿using Agenda_de_Contatos.Models;
+class ContatoRepository
 {
-    private List<Contato> contatos = new List<Contato>();
+    private readonly AgendaContext _context;
+
+    public ContatoRepository(AgendaContext context)
+    {
+        _context = context;
+    }
+
     public void Adicionar(Contato contato)
     {
-        contatos.Add(contato);
+        _context.Contatos.Add(contato);
+        _context.SaveChanges();
     }
+
     public List<Contato> Listar()
     {
-        return contatos;
+        return _context.Contatos.ToList();
     }
 
     public Contato? BuscarPorNome(string nome)
     {
-        return contatos.FirstOrDefault(c => c.Nome.Equals(nome, StringComparison.OrdinalIgnoreCase));
+        return _context.Contatos
+            .FirstOrDefault(c => c.Nome.ToLower() == nome.ToLower());
     }
 
     public bool ExisteEmail(string email)
     {
-        return contatos.Any(c => c.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
+        return _context.Contatos
+            .Any(c => c.Email.ToLower() == email.ToLower());
     }
 
-
-    //Buscar contato por nome
-   void BuscarContatoPorNome(string nome)
+    public bool RemoverPorNome(string nome)
     {
-        Console.Write("Digite o nome do contato que deseja buscar: ");
-        string nomeBusca = Console.ReadLine() ?? string.Empty;
-        
-        foreach (var contato in contatos)
-        {
-            if (contato.Nome.Equals(nomeBusca, StringComparison.OrdinalIgnoreCase))
-            {
-                Console.WriteLine("Contato encontrado:");
-                Console.WriteLine(contato.Informacao);
-                return;
-            }else {
-                Console.WriteLine("Contato não encontrado.");
-            }
+        var contato = _context.Contatos
+            .FirstOrDefault(c => c.Nome.ToLower() == nome.ToLower());
 
-    }
+        if (contato == null)
+            return false;
 
-
-
-
-
-    void ExibirTituloDaOpcao(string titulo)
-    {
-        // Colocar o asteriscos do tamanho da frase
-        int quantidadeDeLetras = titulo.Length;
-        string asteriscos = string.Empty.PadLeft(quantidadeDeLetras, '*');
-        Console.WriteLine(asteriscos);
-        Console.WriteLine(titulo);
-        Console.WriteLine(asteriscos + "\n");
+        _context.Contatos.Remove(contato);
+        _context.SaveChanges();
+        return true;
     }
 }
