@@ -125,5 +125,23 @@ class AgendaService
         Console.ReadKey();
     }
 
+    public void ExcluirContato()
+    {
+        Console.Clear();
+        ExibirTituloDaOpcao("Excluir Contato");
+        Console.Write("Digite o nome do contato que deseja excluir: ");
+        string nome = Console.ReadLine() ?? string.Empty;
+        bool removido = _contatoRepository.RemoverPorNome(nome);
+        if (removido)
+        {
+            Console.WriteLine("\nContato excluído com sucesso.");
+        }
+        else
+        {
+            Console.WriteLine("\nContato não encontrado.");
+        }
+        Console.WriteLine("\nPressione qualquer tecla para voltar...");
+        Console.ReadKey();
+    }
 
 }

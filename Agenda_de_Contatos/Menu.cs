@@ -1,5 +1,4 @@
 ﻿
-using Agenda_de_Contatos.Models;
 class Menu
 {
     void ExibirLogo(){
@@ -35,7 +34,8 @@ class Menu
             Console.WriteLine("1. Adicionar Contato");
             Console.WriteLine("2. Listar Contatos");
             Console.WriteLine("3. Buscar Contato");
-            Console.WriteLine("4. Sair");
+            Console.WriteLine("4  Excluir Contato");
+            Console.WriteLine("5. Sair");
 
             string? opcao = Console.ReadLine();
 
@@ -61,6 +61,10 @@ class Menu
                     break;
 
                 case "4":
+                    _agendaService.ExcluirContato();
+                    break;
+
+                case "5":
                     return;
 
                 default:
