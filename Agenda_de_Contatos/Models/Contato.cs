@@ -7,6 +7,7 @@ public class Contato
     public string Nome { get; set; }
     public string Telefone { get; set; }
     public string Email { get; set; }
+    public bool Ativo { get; set; } // Indica se o contato está ativo ou inativo
 
     public string Informacao =>
         $"|| Nome: {Nome} || Telefone: {Telefone} || Email: {Email} ||";

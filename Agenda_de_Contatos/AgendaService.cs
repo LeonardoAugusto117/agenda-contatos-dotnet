@@ -57,12 +57,16 @@ class AgendaService
                 continue;
             }
 
+
             Contato novoContato = new Contato
             {
                 Nome = nome,
                 Telefone = telefone,
-                Email = email
+                Email = email,
+                Ativo = true
             };
+
+            
 
             _contatoRepository.Adicionar(novoContato);
 

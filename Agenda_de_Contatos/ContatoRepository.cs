@@ -39,7 +39,7 @@ class ContatoRepository
         if (contato == null)
             return false;
 
-        _context.Contatos.Remove(contato);
+        contato.Ativo = false;
         _context.SaveChanges();
         return true;
     }

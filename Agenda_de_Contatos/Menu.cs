@@ -1,6 +1,9 @@
 ﻿
 class Menu
 {
+    private readonly AgendaService _agendaService;
+
+
     void ExibirLogo(){
 
         Console.WriteLine(@"
@@ -13,9 +16,6 @@ class Menu
 |  $$$$$$/|  $$$$$$/| $$  | $$  |  $$$$/|  $$$$$$$  |  $$$$/|  $$$$$$/      |  $$$$$$$|  $$$$$$$      |  $$$$$$/| $$| $$|  $$$$$$$| $$  | $$  |  $$$$/|  $$$$$$$
  \______/  \______/ |__/  |__/   \___/   \_______/   \___/   \______/        \_______/ \_______/       \______/ |__/|__/ \_______/|__/  |__/   \___/   \_______/");
     }
-
-
-    private readonly AgendaService _agendaService;
 
     public Menu(AgendaService agendaService)
     {
